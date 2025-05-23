@@ -1,12 +1,12 @@
 "use client"
 import { Lock, Search, ShieldCheck, Menu, X } from "lucide-react";
-import heroImg from "../../../public/legal.png";
+import about from "../../../public/about.png";
 import Image from "next/image";
 import { useState } from "react";
 import { AuroraText } from "../magicui/aurora-text";
 import Link from "next/link";
 
-const HeroSection = () => {
+const ContactSection = () => {
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
     const [searchOpen, setSearchOpen] = useState(false);
     
@@ -50,31 +50,11 @@ const HeroSection = () => {
                        
                     </div>
 
-                    <div className="flex md:hidden items-center space-x-4">
-                        <button
-                            className="p-2"
-                            onClick={() => setSearchOpen(!searchOpen)}
-                        >
-                            {/* <Search size={20} className="text-black" /> */}
-                        </button>
-                        <button
-                            className="p-2 rounded-md hover:bg-gray-100"
-                            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-                        >
-                            {mobileMenuOpen ? <X size={24} className="text-black" /> : <Menu size={24} className="text-black" />}
-                        </button>
-                    </div>
+                   
                 </div>
 
                 
-                <div className={`mt-4 md:hidden relative overflow-hidden transition-all duration-300 ease-in-out ${searchOpen ? 'max-h-20 opacity-100' : 'max-h-0 opacity-0'}`}>
-                    <input
-                        type="text"
-                        placeholder="Search..."
-                        className="w-full pl-10 pr-4 py-2 rounded-full bg-white border border-gray-300 text-black placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-300"
-                    />
-                    <Search className="absolute left-3 top-2.5 text-gray-500 h-4 w-4" />
-                </div>
+               
 
                 
                 <div className={`md:hidden bg-white border border-gray-200 rounded-lg p-4 space-y-3 shadow-md transition-all duration-300 ease-in-out overflow-hidden ${mobileMenuOpen ? 'max-h-96 opacity-100 mt-4' : 'max-h-0 opacity-0 mt-0'}`}>
@@ -91,7 +71,7 @@ const HeroSection = () => {
                 <div className="w-full lg:w-1/2 relative -mt-8 lg:mt-0 order-1 lg:order-2">
                     <div className="relative w-full max-w-md mx-auto">
                         <Image
-                            src={heroImg}
+                            src={about}
                             alt="Hero Illustration"
                             width={900}
                             height={700}
@@ -109,9 +89,13 @@ const HeroSection = () => {
                     </h1>
 
                     <p className="text-lg md:text-xl text-gray-700 mb-8 max-w-lg mx-auto lg:mx-0">
-                    DSG is a publicly listed Non-Banking Financial Company (NBFC). Supported by leading tech experts.<AuroraText> our system offers flexible building blocks. This allows our partners to customize and create loan products that are precisely suited to their business needs. </AuroraText>
+                    DSG is a publicly listed Non-Banking Financial Company (NBFC). Supported by leading tech experts.<AuroraText> our system offers flexible building blocks. This allows our partners to customize and create loan products that are precisely suited to their business needs. 
+                        
+                    We are poised to accelerate the evolution of the digital lending landscape. By enabling every organization to offer digital credit and lending services, we will significantly enhance the availability of formal credit. Access to credit is a vital component in a nation progress and development. </AuroraText>
                     </p>
 
+
+                    
                     {/* <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
                         <button className="px-8 py-3 bg-blue-600 text-white font-semibold rounded-full hover:bg-blue-700 transition-all shadow-lg hover:shadow-xl transform hover:-translate-y-1">
                             Get started
@@ -126,4 +110,4 @@ const HeroSection = () => {
     );
 };
 
-export default HeroSection;
+export default ContactSection;

@@ -96,23 +96,23 @@ export function WhyChooseUs() {
     const features = [
         {
             icon: <Shield className="w-8 h-8 text-blue-600" />,
-            title: "Trusted Expertise",
-            description: "Over 10 years of industry experience with proven results"
+            title: "Customer-Centric Approach",
+            description: "We prioritize your financial needs with tailored solutions, flexible repayment plans"
         },
         {
             icon: <Users className="w-8 h-8 text-blue-600" />,
-            title: "Client-Centric Approach",
-            description: "We prioritize your needs with personalized solutions"
+            title: "Fast & Hassle-Free Processing",
+            description: "With minimal documentation , we ensure fast disbursal and minimal waiting time"
         },
         {
             icon: <Award className="w-8 h-8 text-blue-600" />,
-            title: "Award Winning Service",
-            description: "Recognized for excellence in customer satisfaction"
+            title: "Transparent Dealings",
+            description: "complete transparency and honest communication in all our financial dealings"
         },
         {
             icon: <Clock className="w-8 h-8 text-blue-600" />,
-            title: "Timely Delivery",
-            description: "We respect your time with strict deadline adherence"
+            title: "Innovative Financial Products",
+            description: "we offer a wide range of customized products designed to suit diverse customer needs"
         }
     ];
 
@@ -126,7 +126,7 @@ export function WhyChooseUs() {
     return (
         <section className="relative py-16 md:py-24 bg-white overflow-hidden" >
             
-            <div className="absolute inset-0 z-0 overflow-hidden -top-20" id="#about">
+            <div className="absolute inset-0 z-0 overflow-hidden -top-20" id="/about-us">
                 <svg
                     className="w-full h-full"
                     viewBox="0 0 1440 800"
@@ -174,14 +174,14 @@ export function WhyChooseUs() {
                 </div>
 
                 
-                <div className="mt-20 grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
+                {/* <div className="mt-20 grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
                     {stats.map((stat, index) => (
                         <div key={index} className="p-6 bg-white rounded-xl shadow-md hover:shadow-lg transition-shadow">
                             <Counter value={stat.value} duration={2000} />
                             <div className="text-gray-700">{stat.label}</div>
                         </div>
                     ))}
-                </div>
+                </div> */}
             </div>
         </section>
     );

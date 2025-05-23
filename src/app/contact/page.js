@@ -1,17 +1,36 @@
 "use client";
-import { Mail, Phone, MapPin, Send } from "lucide-react";
+import { Mail, Phone, MapPin, Clock } from "lucide-react";
 import { motion } from "framer-motion";
 import { AuroraText } from "@/components/magicui/aurora-text";
 import { useState } from "react";
-import { Lock, Search, ShieldCheck, Menu, X } from "lucide-react";
+import { Search, Menu, X } from "lucide-react";
 import Link from "next/link";
 
 const ContactPage = () => {
-        const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-        const [searchOpen, setSearchOpen] = useState(false);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [searchOpen, setSearchOpen] = useState(false);
+
+  const contactMethods = [
+
+    {
+      icon: <Mail className="w-6 h-6 text-blue-600" />,
+      title: "Email Us",
+      details: "support@desg.com",
+      description: "Response within 24 hours",
+      href: "mailto:support@dsg.com"
+    },
+    {
+      icon: <MapPin className="w-6 h-6 text-blue-600" />,
+      title: "Address",
+      details: "GROUND FLOOR, HOUSE NO-227, BLOCK-A PKT-4, SECTOR-4 ROHINI,",
+      description: "North West Delhi, Delhi, 110085",
+      href: "https://maps.google.com"
+    },
+  ];
+
   return (
     <div className="relative min-h-screen font-sans bg-white overflow-x-hidden">
-     
+      {/* Background SVG */}
       <div className="absolute inset-0 z-0 overflow-hidden">
         <svg
           className="w-full h-full"
@@ -31,39 +50,23 @@ const ContactPage = () => {
         </svg>
       </div>
 
+      {/* Navigation */}
       <nav className="relative z-10 px-6 py-4 md:px-12 md:py-6">
         <div className="flex justify-between items-center">
           <div className="text-2xl font-bold text-black">
             <span>REGISTER</span>
             <AuroraText>KARO</AuroraText>
-            
           </div>
 
           <div className="hidden md:flex items-center space-x-8">
             <div className="flex space-x-8">
-                <Link href='/' className="hover:text-blue-600 transition-colors font-medium text-black">Home</Link>
-                <Link href='/' className="hover:text-blue-600 transition-colors font-medium text-black">About</Link>
-                <Link href='/' className="hover:text-blue-600 transition-colors font-medium text-black">Services</Link>
-                <Link href='/contact' className="hover:text-blue-600 transition-colors font-medium text-black">Contact</Link>
-                <Link href='/' className="hover:text-blue-600 transition-colors font-medium text-black">Home</Link>
+              <Link href='/' className="hover:text-blue-600 transition-colors font-medium text-black">Home</Link>
+              <Link href='/' className="hover:text-blue-600 transition-colors font-medium text-black">About</Link>
+              <Link href='/' className="hover:text-blue-600 transition-colors font-medium text-black">Services</Link>
+              <Link href='/contact' className="hover:text-blue-600 transition-colors font-medium text-black">Contact</Link>
             </div>
 
-            <div className="flex items-center space-x-4 ml-8">
-              <div className="relative hidden md:block">
-                <input
-                  type="text"
-                  placeholder="Search"
-                  className="pl-10 pr-4 py-2 rounded-full bg-white border border-gray-300 text-black placeholder-gray-500 text-sm focus:outline-none focus:ring-2 focus:ring-blue-300 w-40 lg:w-48 transition-all"
-                />
-                <Search className="absolute left-3 top-2.5 text-gray-500 h-4 w-4" />
-              </div>
-              <button
-                className="md:hidden p-2 rounded-md hover:bg-gray-100"
-                onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              >
-                {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
-              </button>
-            </div>
+            
           </div>
 
           <div className="flex md:hidden items-center space-x-4">
@@ -71,7 +74,7 @@ const ContactPage = () => {
               className="p-2"
               onClick={() => setSearchOpen(!searchOpen)}
             >
-              <Search size={20} className="text-black" />
+              {/* <Search size={20} className="text-black" /> */}
             </button>
             <button
               className="p-2 rounded-md hover:bg-gray-100"
@@ -82,161 +85,75 @@ const ContactPage = () => {
           </div>
         </div>
 
-        {searchOpen && (
-          <div className="mt-4 md:hidden relative">
-            <input
-              type="text"
-              placeholder="Search..."
-              className="w-full pl-10 pr-4 py-2 rounded-full bg-white border border-gray-300 text-black placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-300"
-            />
-            <Search className="absolute left-3 top-2.5 text-gray-500 h-4 w-4" />
-          </div>
-        )}
+
 
         {mobileMenuOpen && (
           <div className="mt-4 md:hidden bg-white border border-gray-200 rounded-lg p-4 space-y-3 shadow-md">
-            <a href="#" className="block hover:text-blue-600 transition-colors text-black">Home</a>
-            <a href="#" className="block hover:text-blue-600 transition-colors text-black">About</a>
-            <a href="#" className="block hover:text-blue-600 transition-colors text-black">Services</a>
-            <a href="#" className="block hover:text-blue-600 transition-colors text-black">Contact</a>
+            <Link href="/" className="block hover:text-blue-600 transition-colors text-black">Home</Link>
+            <Link href="/" className="block hover:text-blue-600 transition-colors text-black">About</Link>
+            <Link href="/" className="block hover:text-blue-600 transition-colors text-black">Services</Link>
+            <Link href="/contact" className="block hover:text-blue-600 transition-colors text-black">Contact</Link>
           </div>
         )}
       </nav>
 
-      
+      {/* Main Content */}
       <div className="relative z-10 container mx-auto px-6 md:px-12 lg:px-20 py-16 md:py-24">
-        
+        {/* Header */}
         <div className="text-center mb-16">
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-black mb-4">
-            <AuroraText>Contact</AuroraText> Us
+            <AuroraText>Our</AuroraText> Contact Info
           </h1>
           <div className="w-20 h-1 bg-blue-600 mx-auto mb-6"></div>
           <p className="text-lg md:text-xl text-gray-700 max-w-2xl mx-auto">
-            Have questions? We are here to help. Reach out to our team anytime.
+            Reach out to us through any of these channels
           </p>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-         
-          <motion.div 
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
-            className="bg-white p-8 rounded-xl shadow-lg border border-gray-100"
-          >
-            <h2 className="text-2xl font-bold text-black mb-6">
-              Send us a <AuroraText>message</AuroraText>
-            </h2>
-            
-            <form className="space-y-6">
-              <div>
-                <label htmlFor="name" className="block text-gray-700 mb-2">Name</label>
-                <input
-                  type="text"
-                  id="name"
-                  className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-300"
-                  placeholder="Your name"
-                />
-              </div>
-              
-              <div>
-                <label htmlFor="email" className="block text-gray-700 mb-2">Email</label>
-                <input
-                  type="email"
-                  id="email"
-                  className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-300"
-                  placeholder="your.email@example.com"
-                />
-              </div>
-              
-              <div>
-                <label htmlFor="message" className="block text-gray-700 mb-2">Message</label>
-                <textarea
-                  id="message"
-                  rows="5"
-                  className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-300"
-                  placeholder="Your message..."
-                ></textarea>
-              </div>
-              
-              <button
-                type="submit"
-                className="flex items-center justify-center px-8 py-3 bg-blue-600 text-white font-semibold rounded-full hover:bg-blue-700 transition-all shadow-lg hover:shadow-xl"
+        {/* Contact Information */}
+        <div className="max-w-4xl mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            {contactMethods.map((method, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: index * 0.1 }}
+                whileHover={{ y: -5 }}
+                className="bg-white p-8 rounded-xl shadow-md border border-gray-100 hover:shadow-lg transition-all"
               >
-                <Send className="w-5 h-5 mr-2" />
-                Send Message
-              </button>
-            </form>
-          </motion.div>
+                <Link href={method.href} className="flex flex-col items-center text-center">
+                  <div className="p-4 bg-blue-50 rounded-full mb-4">
+                    {method.icon}
+                  </div>
+                  <h3 className="font-bold text-xl text-gray-900 mb-2">{method.title}</h3>
+                  <p className="text-gray-800 font-medium text-lg">{method.details}</p>
+                  <p className="text-gray-500 mt-2">{method.description}</p>
+                </Link>
+              </motion.div>
+            ))}
+          </div>
 
-         
-          <motion.div 
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.1 }}
-            className="space-y-8"
+
+          {/* <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 0.4 }}
+            className="mt-12 bg-white p-4 rounded-xl shadow-md border border-gray-100 overflow-hidden"
           >
-            <div className="bg-white p-8 rounded-xl shadow-lg border border-gray-100">
-              <h2 className="text-2xl font-bold text-black mb-6">
-                Our <AuroraText>Contact</AuroraText> Information
-              </h2>
-              
-              <div className="space-y-6">
-                <div className="flex items-start">
-                  <div className="p-2 bg-blue-100 rounded-full mr-4">
-                    <Mail className="w-6 h-6 text-blue-600" />
-                  </div>
-                  <div>
-                    <h3 className="text-lg font-semibold text-black">Email</h3>
-                    <p className="text-gray-600">contact@example.com</p>
-                    <p className="text-gray-600">support@example.com</p>
-                  </div>
-                </div>
-                
-                <div className="flex items-start">
-                  <div className="p-2 bg-blue-100 rounded-full mr-4">
-                    <Phone className="w-6 h-6 text-blue-600" />
-                  </div>
-                  <div>
-                    <h3 className="text-lg font-semibold text-black">Phone</h3>
-                    <p className="text-gray-600">+1 (123) 456-7890</p>
-                    <p className="text-gray-600">+1 (987) 654-3210</p>
-                  </div>
-                </div>
-                
-                <div className="flex items-start">
-                  <div className="p-2 bg-blue-100 rounded-full mr-4">
-                    <MapPin className="w-6 h-6 text-blue-600" />
-                  </div>
-                  <div>
-                    <h3 className="text-lg font-semibold text-black">Address</h3>
-                    <p className="text-gray-600">123 Business Avenue</p>
-                    <p className="text-gray-600">Suite 456, New York, NY 10001</p>
-                  </div>
-                </div>
-              </div>
+            <h3 className="text-xl font-bold text-gray-900 mb-4 text-center">Our Location</h3>
+            <div className="aspect-w-16 aspect-h-9 bg-gray-200 rounded-lg overflow-hidden">
+              <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3502.415969668824!2d77.2063723150825!3d28.62890098242493!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390cfd5b347eb62d%3A0x52c2b7494e204dce!2sNew%20Delhi%2C%20Delhi!5e0!3m2!1sen!2sin!4v1620000000000!5m2!1sen!2sin"
+                width="100%"
+                height="400"
+                style={{ border: 0 }}
+                allowFullScreen=""
+                loading="lazy"
+                className="rounded-lg"
+              ></iframe>
             </div>
-
-         
-            <div className="bg-white p-8 rounded-xl shadow-lg border border-gray-100">
-              <h2 className="text-2xl font-bold text-black mb-6">
-                Business <AuroraText>Hours</AuroraText>
-              </h2>
-              
-              <div className="space-y-4">
-                {[
-                  { day: "Monday - Friday", hours: "9:00 AM - 6:00 PM" },
-                  { day: "Saturday", hours: "10:00 AM - 4:00 PM" },
-                  { day: "Sunday", hours: "Closed" }
-                ].map((item, index) => (
-                  <div key={index} className="flex justify-between">
-                    <span className="text-gray-700 font-medium">{item.day}</span>
-                    <span className="text-gray-600">{item.hours}</span>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </motion.div>
+          </motion.div> */}
         </div>
       </div>
     </div>

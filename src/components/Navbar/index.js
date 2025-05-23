@@ -20,7 +20,7 @@ export const Navbar = () => {
           <div className="flex space-x-8">
             <NavLink href="#">Home</NavLink>
             <NavLink href="#">About</NavLink>
-            <NavLink href="#">Services</NavLink>
+            <NavLink href="#">Our Product</NavLink>
             <NavLink href="#">Contact</NavLink>
           </div>
 
@@ -76,7 +76,7 @@ export const Navbar = () => {
         <div className="mt-4 md:hidden bg-white border border-gray-200 rounded-lg p-4 space-y-3 shadow-md">
           <MobileNavLink href="#">Home</MobileNavLink>
           <MobileNavLink href="#">About</MobileNavLink>
-          <MobileNavLink href="#">Services</MobileNavLink>
+          <MobileNavLink href="#">Our Product</MobileNavLink>
           <MobileNavLink href="#">Contact</MobileNavLink>
         </div>
       )}
